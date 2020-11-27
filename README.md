@@ -2,7 +2,7 @@
 
 Favicon based recon to fingerprint services running on a webserver.
 
-#### Usuage:
+#### Usage:
 `python3 favhunt.py -l domains.txt`
 
 ```
