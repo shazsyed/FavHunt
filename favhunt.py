@@ -23,7 +23,9 @@ def main():
     parser.add_argument("-o", help="JSON output filename", required=False, dest="output")
     parser.add_argument("-f", help="Path to fingerprints json file (default: fingerprints.json)", required=False, default="fingerprints.json", dest="fingerprints")
     parser.add_argument("-t", help="Threads (default: 20)", type=int, required=False, default=20, dest="threads")
-    parser.add_argument("-v", help="Verbose output", action="store_true", required=False, dest="verbose")
+    parser.add_argument("-j", "--json", help="Stdout output in JSON", action="store_true")
+    parser.add_argument("-s", "--silent", help="Only shows results with matched fingerprints", action="store_true")
+    parser.add_argument("-v", "--verbose", help="Verbose output", action="store_true", required=False)
     args = parser.parse_args()
 
     urls = []
@@ -58,10 +60,11 @@ def main():
                     matched_fingerprint = fingerprints[hash]
                 output[domain] = {"hash": hash, "matched_fingerprint": matched_fingerprint}
 
-                if args.verbose:
-                    print(f'[{matched_fingerprint}][{hash}] {domain}')
-                elif not matched_fingerprint == "None":
-                    print(f'[{matched_fingerprint}][{hash}] {domain}')
+                if (args.silent and not matched_fingerprint == "None") or (not args.silent):
+                    if args.json:
+                        print('{"domain": "%s", "fingerprint": "%s", "hash": "%s"}' %(domain, matched_fingerprint, hash))
+                    else:
+                        print(f'[{matched_fingerprint}][{hash}] {domain}')
 
             except Exception as e:
                 if args.verbose:
