@@ -18,6 +18,8 @@ optional arguments:
   -s, --silent     Only shows results with matched fingerprints
   -v, --verbose    Verbose output
   ```
+  
+  ![](https://i.imgur.com/8gvAckv.png)
 
 #### Credits:
 Inspired by [FavFreak](https://github.com/devanshbatham/FavFreak) and thanks for fingerprints <3
