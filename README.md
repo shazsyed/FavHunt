@@ -30,5 +30,5 @@ optional arguments:
  #### Using with jq:
   `python3 favhunt.py -l domains.txt -json | jq '.'`
 
-#### Credits:
+## Credits:
 Inspired by [FavFreak](https://github.com/devanshbatham/FavFreak) and thanks for fingerprints <3
