@@ -9,7 +9,7 @@ $ cd FavHunt
 $ pip install -r requirements.txt
 ```
 ## Usage:
-`python3 favhunt.py -l domains.txt`
+`python3 favhunt.py -l domains.txt` or `cat domains.txt | python favhunt.py` 
 
 ```
 usage: favhunt.py [-h] -l LIST [-o OUTPUT] [-f FINGERPRINTS] [-t THREADS] [-j] [-s] [-v]
