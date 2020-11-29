@@ -2,7 +2,13 @@
 
 Favicon based recon to fingerprint services running on a webserver.
 
-#### Usage:
+## Installation:
+```
+$ git clone https://github.com/shazsyed/FavHunt
+$ cd FavHunt
+$ pip install -r requirements.txt
+```
+## Usage:
 `python3 favhunt.py -l domains.txt`
 
 ```
@@ -20,6 +26,9 @@ optional arguments:
   ```
   
   ![](https://i.imgur.com/8gvAckv.png)
+  
+ #### Using with jq:
+  `python3 favhunt.py -l domains.txt -json | jq '.'`
 
 #### Credits:
 Inspired by [FavFreak](https://github.com/devanshbatham/FavFreak) and thanks for fingerprints <3
