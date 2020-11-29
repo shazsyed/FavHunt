@@ -4,6 +4,7 @@ import codecs
 import mmh3
 import argparse
 import urllib3
+import sys
 
 from concurrent import futures
 from pathlib import Path
@@ -19,7 +20,7 @@ def get_hash(domain):
 
 def main():
     parser = argparse.ArgumentParser(description="Find favicon hashes to fingerprint services")
-    parser.add_argument("-l", help="List of domains", required=True, dest="list")
+    parser.add_argument("-l", help="List of domains", required=False, dest="list")
     parser.add_argument("-o", help="JSON output filename", required=False, dest="output")
     parser.add_argument("-f", help="Path to fingerprints json file (default: fingerprints.json)", required=False, default="fingerprints.json", dest="fingerprints")
     parser.add_argument("-t", help="Threads (default: 20)", type=int, required=False, default=20, dest="threads")
@@ -30,14 +31,19 @@ def main():
 
     urls = []
     threads = []
+    data = []
     output = {}
 
-    if Path(args.list).exists():
-        with open(args.list, 'r') as file:
-            data = file.read().splitlines()
+    if args.list:
+        if Path(args.list).exists():
+            with open(args.list, 'r') as file:
+                data = file.read().splitlines()
+        else:
+            print("File not found")
+            return
     else:
-        print("Invalid list")
-        return
+        for line in sys.stdin:
+            data.append(line)
 
     for domain in data:
         if domain.strip()[-1] == '/':
