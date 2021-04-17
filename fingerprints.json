@@ -133,7 +133,6 @@
     "-435817905":"Cambium Networks",
     "-981606721":"Plesk",
     "833190513":"Dahua Storm (IP Camera)",
-    "-1314864135":10,
     "-652508439":"Parallels Plesk Panel",
     "-569941107":"Fireware Watchguard",
     "1326164945":"Shock&Innovation!! netis setup",
@@ -497,5 +496,10 @@
     "999357577":"? (Possibly DVR)",
     "492290497":"? (Possible IP Camera)",
     "400100893":"? (DVR)",
-    "-1252041730":"Vue.js"
-}
+    "-1252041730":"Vue.js",
+    "-928274465": "Grafana",
+    "-2120174257": "Jaspersoft Login",
+    "1073075415": "Jaspersoft Login",
+    "-847792508":"Kubernetes",
+    "-1053531639":"Versa Director Login"
+},
